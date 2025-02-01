@@ -1,5 +1,5 @@
 
-let songs = [
+const songs = [
   {
     name: 'A thousand years',
     path: './songs/Year.mp3',
@@ -21,7 +21,7 @@ let songs = [
   {
     name: 'Blinding nights',
     path: './songs/blinding.mp3',
-    artist: 'The weeknd',
+    artist: 'The Weeknd',
     cover: './img/bg-blinding.jpeg'
   },
   {
@@ -40,11 +40,11 @@ playPauseBtn.addEventListener("click", () => {
   if (audio.paused) {
     disk.classList.add("rotate");
     audio.play();
-    playPauseBtn.innerHTML = '<i class="fa play">&#xf04c;</i>'; // Change to Pause icon
+    playPauseBtn.innerHTML = '<i class="fa play">&#xf04c;</i>'; 
   } else {
     audio.pause();
     disk.classList.remove("rotate");
-    playPauseBtn.innerHTML = '<i class="fa pause">&#xf04b;</i>'; // Change to Play icon
+    playPauseBtn.innerHTML = '<i class="fa pause">&#xf04b;</i>';
   }
 });
 
@@ -58,68 +58,79 @@ const currentTime = document.querySelector(".current-time");
 const songDuration = document.querySelector(".song-duration");
 const timeSlider = document.querySelector("#time-slider");
 
+//   setMusic function
 const setMusic = (i) => {
-  timeSlider.value = 0;
-  let song = songs[i];
-  currentMusic = i;
-  audio.src = song.path;
-  songName.innerHTML = song.name;
-  artistName.innerHTML = song.artist;
-  disk.style.backgroundImage = `url('${song.cover}')`;
+timeSlider.value = 0;
+let song = songs[i];
+currentMusic = i;
+audio.src = song.path;
+songName.innerHTML = song.name;
+artistName.innerHTML = song.artist;
+disk.style.backgroundImage = `url('${song.cover}')`;
 
-  currentTime.innerHTML = "00:00";
-  setTimeout(() => {
-    timeSlider.max = audio.duration;
-    songDuration.innerHTML = formatTime(audio.duration);
-  }, 300);
+currentTime.innerHTML = "00:00";
+setTimeout(() => {
+     timeSlider.max = audio.duration;
+     songDuration.innerHTML = formatTime(audio.duration);
+     }, 300);
 }
 
 setMusic(0);
 
-//   Format Time
-
+//   Time format
 const formatTime = (time) => {
-  let min = Math.floor(time/60);
-  if(min < 10){
+  let min = Math.floor(time / 60);
+  if (min < 10) {
     min = `0${min}`;
   }
-  let sec = Math.floor(time/60);
-  if(sec < 10){
+  let sec = Math.floor(time % 60);  
+  if (sec < 10) {
     sec = `0${sec}`;
   }
   return `${min} : ${sec}`;
 }
 
-//   Time Slider
-
+//   Time Slider 
 setInterval(() => {
-  timeSlider.value = audio.currentTime;
-  currentTime.innerHTML = formatTime(audio.currentTime);
-}, 400)
-
-timeSlider.addEventListener("click", () => {
-  audio.currentTime = timeSlider.value;
-})
-
-//  Next and Prev Button function
-
-prevBtn.addEventListener("click", () => {
-  if(currentMusic >= songs.length -1){
-    currentMusic = 0;
-  } else{
-    ++currentMusic;
+  if (!audio.paused) {
+    timeSlider.value = audio.currentTime;
+    currentTime.innerHTML = formatTime(audio.currentTime);
   }
-  setMusic(currentMusic);
-  playPauseBtn.click();
-})
+}, 1000); 
 
-nextBtn.addEventListener("click", () => {
-  if(currentMusic <= 0){
-    currentMusic = songs.length -1;
-  } else{
+timeSlider.addEventListener("input", () => {
+  audio.currentTime = timeSlider.value;
+});
+
+//  Next Button 
+prevBtn.addEventListener("click", () => {
+  if (currentMusic <= 0) {
+    currentMusic = songs.length - 1;
+  } else {
     --currentMusic;
   }
   setMusic(currentMusic);
   playPauseBtn.click();
-})
+});
 
+//   Prev Button
+nextBtn.addEventListener("click", () => {
+  if (currentMusic >= songs.length - 1) {
+    currentMusic = 0;
+  } else {
+    ++currentMusic;
+  }
+  setMusic(currentMusic);
+  playPauseBtn.click();
+});
+
+// Automatically play the next song when the current one ends
+audio.addEventListener("ended", () => {
+  if (currentMusic >= songs.length - 1) {
+    currentMusic = 0; 
+  } else {
+    ++currentMusic; 
+  }
+  setMusic(currentMusic);
+  playPauseBtn.click();
+});
