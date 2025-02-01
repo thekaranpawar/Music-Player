@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="icon" href="./img/favicon.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  
+    <div class="container">
+        <nav>
+            <button><i class="fa favorite">&#xf004;</i></button>
+            <button><i class="fa">&#xf0c9;</i></button>
+        </nav>
+        <div class="all-content">
+            <div class="disk">
+
+            </div>
+        </div>
+        <div class="all-content">
+            <h2 class="song-name">A Thousand Years</h2>
+            <p class="artist-name">Christina Perri</p>
+        </div>
+        <audio id="audio" src="./songs/Year.mp3"></audio>
+
+        <div class="song-slider">
+            <input type="range" name="" id="time-slider">
+
+            <div class="time-container">
+                <span class="current-time">00:00</span>
+                <span class="song-duration">00:00</span>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="prev-btn"><i class="fa left">&#xf100;</i></button>
+            <button id="playPauseBtn"><i class="fa pause">&#xf04b;</i></button>
+            <button id="next-btn"><i class="fa right">&#xf101;</i></button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
