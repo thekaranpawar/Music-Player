@@ -104,7 +104,7 @@ input::-webkit-slider-thumb{
 
 /* Responsive */
 
-@media (max-width: 380px){
+@media (max-width: 450px){
     body{
         display: flex;
         justify-content: center;
