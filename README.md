@@ -1,10 +1,17 @@
-# Music-Player
-<<<<<<< HEAD
-A sleek and interactive music player built with HTML, CSS, and JavaScript. It lets you play your music library, dynamically updating song titles, artist names, and background images with each track. Featuring a time bar to track song progress, and smooth controls for play, pause, next, and previous.
-=======
-<<<<<<< HEAD
-A sleek and interactive music player built with HTML, CSS, and JavaScript. This player allows you to play a music library, where the song titles, artist names, and background images dynamically change whenever you switch tracks. Perfect for managing your own playlist and personalizing your listening experience.
-=======
-A sleek and interactive music player built with HTML, CSS, and JavaScript. This player allows you to play a custom music library, where the song titles, artist names, and background images dynamically change whenever you switch tracks. Perfect for managing your own playlist and personalizing your listening experience.
->>>>>>> edb314d (Initial Commit)
->>>>>>> 3988f9e (First commit)
+Music Player
+
+A simple web-based music player built using HTML, CSS, and JavaScript. The player supports basic functionalities like play/pause, song navigation (next/previous), and a time progress bar. It allows users to play a list of songs with ease and navigate through the playlist.
+
+Features
+
+Play/Pause: Toggle between play and pause with a single button.
+
+Next/Previous: Navigate to the next or previous song in the playlist.
+
+Time Progress Bar: View and interact with the song's progress bar.
+
+Song Info Display: Shows the song's name, artist, and album cover.
+
+Auto Play Next: Automatically play the next song when the current one ends.
+
+Responsive Design: The player is designed to be mobile-friendly

@@ -12,7 +12,7 @@ body{
     align-items: center;
 }
 .container{
-    min-width: 380px;
+    width: 380px;
     background-color: rgb(60, 126, 126);
     padding: 10px 20px;
     margin-top: 0;
@@ -77,19 +77,19 @@ input::-webkit-slider-thumb{
     border-radius: 50%;
     border: 4px solid #ffffff;
 }
-.controls{
+.control{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 20px auto;
 }
-.controls button{
+.control button{
     font-size: 38px;
     background-color: rgb(189, 224, 224);
     padding: 8px 12px;
     border-radius: 50%;
 }
-.controls button:hover{
+.control button:hover{
     background-color: rgb(95, 187, 187);
 }
 .time-container{
@@ -100,4 +100,14 @@ input::-webkit-slider-thumb{
     margin-top: 6px;
     size: 18px;
     font-weight: bold;
+}
+
+/* Responsive */
+
+@media (max-width: 380px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
 }

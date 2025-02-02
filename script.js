@@ -59,6 +59,7 @@ const songDuration = document.querySelector(".song-duration");
 const timeSlider = document.querySelector("#time-slider");
 
 //   setMusic function
+
 const setMusic = (i) => {
 timeSlider.value = 0;
 let song = songs[i];
@@ -124,7 +125,7 @@ nextBtn.addEventListener("click", () => {
   playPauseBtn.click();
 });
 
-// Automatically play the next song when the current one ends
+// Automatically play the next song when the current ends
 audio.addEventListener("ended", () => {
   if (currentMusic >= songs.length - 1) {
     currentMusic = 0; 
